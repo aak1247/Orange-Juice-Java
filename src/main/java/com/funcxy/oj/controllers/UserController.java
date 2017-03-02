@@ -37,6 +37,7 @@ public class UserController {
     }
     @RequestMapping(value = "/user",method = RequestMethod.GET)
     public String signIn(User user){
+        userService.login(user);
         return "success";
     }
 }

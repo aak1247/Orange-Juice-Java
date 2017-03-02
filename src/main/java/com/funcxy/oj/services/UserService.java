@@ -18,4 +18,13 @@ public class UserService {
         if (Validation.notValid(user))throw new InvalidException();
         userRepository.save(user);
     }
+    public void login(User user) throws Error{
+        if(user.getEmail()==null&&user.getUsername()==null){
+            throw new Error("username or email must be setted");
+        }
+        if(user.getUsername()!=null){
+            User userFound = userRepository.findByUsername(user.getUsername()).get(0);
+            if (userFound.passwordVerify(user.getPassword()));
+        }
+    }
 }
