@@ -8,7 +8,9 @@ import com.funcxy.oj.models.User;
  */
 public class Validation {
     public static boolean notValid(User user){
-        if (user.getUsername()== null)return true;
+        if (user.getUsername()== null||
+                user.getEmail()==null||
+                user.getPassword()==null)return true;
         return false;
     }
 }
